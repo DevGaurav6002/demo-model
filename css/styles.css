@@ -697,8 +697,8 @@ img{
     color: #e481a7;
 }
 
-@media screen and (max-width: 600px){
+/* @media screen and (max-width: 600px){
     .p-model-container{ 
         display: block;
     }
-}
+} */
