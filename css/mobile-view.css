@@ -195,6 +195,8 @@ color: var(--nykaa-pink);
     align-items: center;
     /* padding: 10px 40px; */
     border: 1px solid var(--nykaa-pink);
+    position: relative;
+    top: 60%;
 }
 
  .like-btn{
