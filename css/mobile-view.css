@@ -6,10 +6,13 @@
     --nykaa-pink: #FC2779;
 }
 
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 
@@ -37,6 +40,7 @@ img{
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    padding: 20px;
 }
 
 .navbar-container{
@@ -90,12 +94,17 @@ color: var(--nykaa-pink);
 
 .main-image-container{
     width: 100%;
+    max-width: 100%;
     height: 100%;
     min-height: 100%;
     /* position: relative; */
     /* padding: 20px 0px 100px 0px; */
     position: absolute;
-    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.main-image-container::-webkit-scrollbar {
+  display: none;
 }
 
 .img{
@@ -112,10 +121,6 @@ color: var(--nykaa-pink);
 
 .img:nth-child(1){
     left: 0%;
-}
-
-.img:nth-child(2){
-    left: 100%;
 }
 
 .img:nth-child(2){
@@ -150,6 +155,10 @@ color: var(--nykaa-pink);
     left: 800%;
 }
 
+.img:nth-child(10){
+    left: 900%;
+}
+
 
 .img{
     transform: translateX(0%);
@@ -163,7 +172,7 @@ color: var(--nykaa-pink);
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    top: 50%;
+    top: 53%;
     overflow: scroll;
 }
 
@@ -182,7 +191,8 @@ color: var(--nykaa-pink);
     border: 1px solid #111;
     border-radius: 10px;
     width: 90px;
-    height: 80px;
+    height: 95px;
+    padding: 5px;
 }
 
 .footer-btn{
@@ -196,12 +206,12 @@ color: var(--nykaa-pink);
     /* padding: 10px 40px; */
     border: 1px solid var(--nykaa-pink);
     position: relative;
-    top: 50%;
-    padding: 15px 25px;
+    top: 60%;
+    border-radius: 5px;
 }
 
  .like-btn{
-    padding: 15px;
+    padding: 10px;
     text-align: center;
  }
 
@@ -215,13 +225,13 @@ color: var(--nykaa-pink);
     align-items: center;
     justify-content: center;
     background-color: var(--nykaa-pink);
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     text-align: center;
 } 
 
 .cart-text{
-    padding: 0px 20px;
+    padding: 0px 10px;
 }
 
 .cart-logo i{
@@ -232,7 +242,8 @@ color: var(--nykaa-pink);
 .cart-btn .cart-text p{
     font-family: var(--open-sans);
     color: #fff;
-    font-weight: 700;    
+    font-weight: 700; 
+    font-size: 14px;   
 }
 
 
