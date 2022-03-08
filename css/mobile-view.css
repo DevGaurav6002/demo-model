@@ -100,12 +100,12 @@ color: var(--nykaa-pink);
     /* position: relative; */
     /* padding: 20px 0px 100px 0px; */
     position: absolute;
-    overflow-x: scroll;
+    overflow-x: visible;
 }
 
-.main-image-container::-webkit-scrollbar {
+/* .main-image-container::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .img{
     width: 100%;
@@ -160,9 +160,9 @@ color: var(--nykaa-pink);
 }
 
 
-.img{
+/* .img{
     transform: translateX(0%);
-}
+} */
 
 .sticky-div{
     /* max-height: 190px;
@@ -246,4 +246,6 @@ color: var(--nykaa-pink);
     font-size: 14px;   
 }
 
-
+.img img{
+    transition: transform 0.3s ease-in-out;
+}
