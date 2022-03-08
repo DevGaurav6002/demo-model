@@ -22,11 +22,11 @@ slides.forEach((slide, index) => {
 })
 
 //disable context menu
-window.oncontextmenu = function (e) {
-    e.preventDefault()
-    e.stopPropagation()
-    return false
-}
+// window.oncontextmenu = function (e) {
+//     e.preventDefault()
+//     e.stopPropagation()
+//     return false
+// }
 
 function touchStart(index) {
     return function (event) {
@@ -48,6 +48,17 @@ function getPositionX(event) {
 function touchEnd() {
     isDragging = false;
     cancelAnimationFrame(animationId)
+
+    const movedBy = currentTranslate - prevTranslate
+
+    if (movedBy < -20 && currentIndex < slides.length - 1) {
+        currentIndex += 1
+    }
+
+    if (movedBy > 20 && currentIndex > 0) {
+        currentIndex -= 1
+    }
+
 }
 
 function touchMove() {
@@ -66,4 +77,10 @@ function animation() {
 
 function setSliderPosition() {
     return slider.style.transform = `translateX(${currentTranslate}px)`
+}
+
+function setPositionByIndex() {
+    currentTranslate = currentIndex * -window.innerWidth
+    prevTranslate = currentTranslate
+    setSliderPosition()
 }

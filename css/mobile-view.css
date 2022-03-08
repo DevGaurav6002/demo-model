@@ -100,12 +100,12 @@ color: var(--nykaa-pink);
     /* position: relative; */
     /* padding: 20px 0px 100px 0px; */
     position: absolute;
-    overflow-x: visible;
+    overflow-x: scroll;
 }
 
-/* .main-image-container::-webkit-scrollbar {
+.main-image-container::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .img{
     width: 100%;
