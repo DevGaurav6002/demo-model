@@ -6,6 +6,14 @@
     --nykaa-pink: #FC2779;
 }
 
+.c-img img:hover, .c-main-img img:hover, .img img:hover, .delete-btn .btn i:hover, .delete-btn-video .btn-video i:hover, .video video:hover, .image-div-video a:hover, .video-div-video a:hover, .image-div a:hover, .video-div a:hover, .btn-up, .btn-down{ 
+    cursor: pointer;
+}
+
+ .img img:hover{
+    transform: scale(1.2);
+    transition: all ease-in 0.2s;
+}   
 
 *{
     margin: 0;
@@ -687,4 +695,10 @@ img{
     font-size: 15px;
     font-weight: 700;
     color: #e481a7;
+}
+
+@media screen and (max-width: 600px){
+    .p-model-container{ 
+        display: block;
+    }
 }
