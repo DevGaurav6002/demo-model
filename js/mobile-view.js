@@ -1,6 +1,10 @@
 const slider = document.querySelector('.main-image-container')
 const slides = Array.from(document.querySelectorAll('.main-image-container .img'))
 
+const mobileMenus = document.querySelectorAll('.mobile-menu')
+
+const mainMenuArray = Array.from(mobileMenus)
+
 let isDragging = false;
 let startPos = 0;
 let currentIndex = 0;
@@ -21,16 +25,27 @@ slides.forEach((slide, index) => {
         if (startPos > endPos) {
             count++
             couracel()
+            highlightMenu(count)
         }
         else {
             count--
             couracel()
+            highlightMenu(count)
         }
-        console.log("start" + startPos + "end" + endPos)
     })
 })
 
 
+function highlightMenu(count) {
+    mainMenuArray.forEach(menu => {
+        console.log("menu ID " + menu.getAttribute('id'))
+        console.log(count)
+        menu.style.border = '1px solid #111'
+        if (menu.getAttribute('id') === count) {
+            menu.style.border = '1px solid var(--nykaa-pink)'
+        }
+    })
+}
 
 function touchStart(index) {
     return function (event) {
