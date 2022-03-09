@@ -368,7 +368,7 @@ video{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transform: translateY(20%);    
+    transform: translateY(40%);    
 }
 
 .box-info{
@@ -449,14 +449,14 @@ video{
 
 .video-footer{
     background-color: #f570a3;
-    transform: translateY(-380%);
+    transform: translateY(-180%);
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
     display: grid;
     grid-template-columns: 25% 75%;
-    border: 1px solid var(--gray);
+    border: 1px solid rgb(231, 226, 226);
 }
 
 .video-like-btn {
@@ -475,11 +475,15 @@ video{
     align-items: center;
     width: 100%;
     border: #f570a3 1px solid;
-    height: 35px;
+    height: 50px;
     color: #222;
     font-family: var(--open-sans);
     font-size: 12px;
     font-weight: 500;
+}
+
+.video-cart-text{
+    padding: 0px 10px;
 }
 
 
