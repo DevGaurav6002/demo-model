@@ -1,8 +1,6 @@
 const slider = document.querySelector('.main-image-container')
 const slides = Array.from(document.querySelectorAll('.main-image-container .img'))
-
 const mobileMenus = document.querySelectorAll('.mobile-menu')
-
 const mainMenuArray = Array.from(mobileMenus)
 
 let isDragging = false;
@@ -73,3 +71,17 @@ function couracel() {
 function getPositionX(event) {
     return event.touches[0].clientX
 }
+
+//video container
+
+const videoMenu = document.querySelector('.video-menubox')
+const videoFooter = document.querySelector('.video-footer')
+
+videoMenu.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    videoMenu.classList.toggle('getMenuUp')
+    videoFooter.classList.toggle('getFooterDown')
+})
+
+
