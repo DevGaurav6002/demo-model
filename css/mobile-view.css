@@ -44,7 +44,6 @@ img{
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    padding: 20px;
 }
 
 .navbar-container{
@@ -120,6 +119,7 @@ color: var(--nykaa-pink);
     bottom: 0;
     right: 0;
     left: 0;
+    padding: 0px 10px;
 }
 
  .img:nth-child(1){
@@ -187,7 +187,7 @@ color: var(--nykaa-pink);
 .mobile-menu-container{
     display: grid;
     grid-template-columns: repeat(11, 1fr);
-    padding: 15px 30px; 
+    padding: 15px 10px; 
 }
 
 .mobile-menu{
@@ -200,8 +200,10 @@ color: var(--nykaa-pink);
 }
 
 .footer-btn{
-    width: 100%;
+    width: 80%;
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto  ;
     margin-top: 20px;
     display: grid;
     grid-template-columns: 30% 70%;
@@ -215,7 +217,7 @@ color: var(--nykaa-pink);
 }
 
  .like-btn{
-    padding: 10px;
+    padding: 2px;
     text-align: center;
  }
 
