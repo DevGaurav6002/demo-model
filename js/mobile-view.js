@@ -85,3 +85,26 @@ videoMenu.addEventListener('click', (e) => {
 })
 
 
+//making nav buttons working
+
+const videoContainer = document.querySelector('.mobile-video-container')
+const imageContainer = document.querySelector('.container')
+const videoBtn = document.querySelector('.video-btn a')
+const imageBtn = document.querySelector('.video-image-btn a')
+const myVideo = document.querySelector('video')
+
+videoBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log("Hello video container")
+    videoContainer.style.display = "block";
+    myVideo.play()
+    imageContainer.style.display = "none";
+})
+
+imageBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log("Hello Image container")
+    videoContainer.style.display = "none"
+    imageContainer.style.display = "block"
+    myVideo.pause()
+})

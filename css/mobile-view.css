@@ -31,7 +31,6 @@ img{
     height: 100vh;
     /* background-color: #FC2779; */
     /* position: relative; */
-    display: none;
 }
 
 .mobile-model-container{
@@ -269,6 +268,7 @@ color: var(--nykaa-pink);
     /* background-color: #eeebe5; */
     background-color: #111;
     overflow: hidden;
+    display: none;
 }
 
 .video-navbar-container{
