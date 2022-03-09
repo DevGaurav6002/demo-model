@@ -82,6 +82,18 @@ videoMenu.addEventListener('click', (e) => {
 
     videoMenu.classList.toggle('getMenuUp')
     videoFooter.classList.toggle('getFooterDown')
+
+    if (videoMenu.classList.contains('getMenuUp')) {
+        let myArrow = document.querySelector('.arrow-div i')
+        myArrow.classList.remove('fa-angle-double-up')
+        myArrow.classList.add('fa-angle-double-down')
+        videoFooter.style.display = 'none';
+    } else {
+        let myArrow = document.querySelector('.arrow-div i')
+        myArrow.classList.add('fa-angle-double-up')
+        myArrow.classList.remove('fa-angle-double-down')
+        videoFooter.style.display = 'grid';
+    }
 })
 
 
