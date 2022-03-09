@@ -11,7 +11,7 @@ const imageNIBtn = document.querySelector('.navbar .image-div a');
 const imageNVBtn = document.querySelector('.navbar .video-div a');
 const videoNIBtn = document.querySelector('.navbar-video .image-div-video a');
 const videoNVBtn = document.querySelector('.navbar-video .video-div-video a');
-const video = document.querySelector('video');
+const video = document.querySelector('.main-video video');
 
 //image model
 let iModelMainImage = document.querySelector('.p-main-image-container .main-image img');

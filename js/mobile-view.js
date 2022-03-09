@@ -1,5 +1,5 @@
 const slider = document.querySelector('.main-image-container')
-const slides = Array.from(document.querySelectorAll('.main-image-container .img'))
+const slides = Array.from(document.querySelectorAll('.main-image-container .mobile-img'))
 const mobileMenus = document.querySelectorAll('.mobile-menu')
 const mainMenuArray = Array.from(mobileMenus)
 
@@ -92,12 +92,14 @@ const imageContainer = document.querySelector('.container')
 const videoBtn = document.querySelector('.video-btn a')
 const imageBtn = document.querySelector('.video-image-btn a')
 const myVideo = document.querySelector('video')
+const mainVideo = document.querySelector('.main-video video')
 
 videoBtn.addEventListener('click', (e) => {
     e.preventDefault()
     console.log("Hello video container")
     videoContainer.style.display = "block";
     myVideo.play()
+    mainVideo.pause()
     imageContainer.style.display = "none";
 })
 
@@ -107,4 +109,21 @@ imageBtn.addEventListener('click', (e) => {
     videoContainer.style.display = "none"
     imageContainer.style.display = "block"
     myVideo.pause()
+    mainVideo.pause()
+})
+
+//plying videos on click
+const videos = Array.from(document.querySelector('.video img'))
+const playingVideo = document.querySelector('.video-container video')
+
+videos.forEach(video => {
+    video.addEventListener('click', (e) => {
+        e.preventDefault()
+        console.log('hello')
+        let videoUri = video.getAttribute('id')
+        playingVideo.setAttribute('src', videoUri)
+
+        myVideo.play();
+        mainVideo.pause();
+    })
 })
