@@ -704,6 +704,10 @@ img{
     cursor: pointer;
 }
 
+.video-btn-delete i:hover{
+    cursor: pointer;
+}
+
 .container{
     width: 100%;
     height: 100vh;

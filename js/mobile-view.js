@@ -1,7 +1,7 @@
 const slider = document.querySelector('.main-image-container')
 const slides = Array.from(document.querySelectorAll('.main-image-container .mobile-img'))
-const mobileMenus = document.querySelectorAll('.mobile-menu')
-const mainMenuArray = Array.from(mobileMenus)
+//const mobileMenus = document.querySelectorAll('.mobile-menu')
+let menuImages = Array.from(document.querySelectorAll('.mobile-menu-container .mobile-menu img'))
 
 let isDragging = false;
 let startPos = 0;
@@ -12,6 +12,9 @@ let count = 0;
 
 slides.forEach((slide, index) => {
     const slideImage = slide.querySelector('img')
+
+    slideImage.style.cursor = "grab";
+
     slideImage.addEventListener('dragstart', (e) => {
         e.preventDefault();
     })
@@ -23,27 +26,14 @@ slides.forEach((slide, index) => {
         if (startPos > endPos) {
             count++
             couracel()
-            highlightMenu(count)
         }
         else {
             count--
             couracel()
-            highlightMenu(count)
         }
     })
 })
 
-
-function highlightMenu(count) {
-    mainMenuArray.forEach(menu => {
-        console.log("menu ID " + menu.getAttribute('id'))
-        console.log(count)
-        menu.style.border = '1px solid #111'
-        if (menu.getAttribute('id') === count) {
-            menu.style.border = '1px solid var(--nykaa-pink)'
-        }
-    })
-}
 
 function touchStart(index) {
     return function (event) {
@@ -71,6 +61,42 @@ function couracel() {
 function getPositionX(event) {
     return event.touches[0].clientX
 }
+
+//setting up main image on menu image click event
+
+function getClickedImage() {
+    menuImages.forEach(menuImage => {
+
+        menuImage.style.cursor = 'pointer'
+
+        menuImage.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            let menuId = menuImage.getAttribute('id')
+
+            count = menuId
+
+            couracel()
+
+            highlightBox(menuImage)
+        })
+    })
+}
+
+function highlightBox(menuImage) {
+
+    const menuDivs = Array.from(document.querySelectorAll('.mobile-menu'))
+
+    menuDivs.forEach(div => {
+        div.style.border = '1px solid #111'
+        div.style.transition = 'all 0.2s ease-in-out'
+    })
+
+    menuImage.parentElement.style.border = '1px solid var(--nykaa-pink)'
+    menuImage.parentElement.style.transition = 'all 0.2s ease-in-out'
+}
+
+getClickedImage()
 
 //video container
 
