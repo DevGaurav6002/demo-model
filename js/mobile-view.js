@@ -103,16 +103,15 @@ const videoContainer = document.querySelector('.mobile-video-container')
 const imageContainer = document.querySelector('.container')
 const videoBtn = document.querySelector('.video-btn a')
 const imageBtn = document.querySelector('.video-image-btn a')
-const myVideo = document.querySelector('video')
+const myVideo = document.querySelector('.playing-video-container .video-container video')
 const mainVideo = document.querySelector('.main-video video')
 
 videoBtn.addEventListener('click', (e) => {
     e.preventDefault()
     console.log("Hello video container")
     videoContainer.style.display = "block";
-    myVideo.play()
-    mainVideo.pause()
     imageContainer.style.display = "none";
+    loadVideo();
 })
 
 imageBtn.addEventListener('click', (e) => {
@@ -120,22 +119,54 @@ imageBtn.addEventListener('click', (e) => {
     console.log("Hello Image container")
     videoContainer.style.display = "none"
     imageContainer.style.display = "block"
-    myVideo.pause()
-    mainVideo.pause()
+    stopVideo();
 })
 
 //plying videos on click
-const videos = Array.from(document.querySelector('.video img'))
+const videos = Array.from(document.querySelectorAll('.video img'))
 const playingVideo = document.querySelector('.video-container video')
 
 videos.forEach(video => {
     video.addEventListener('click', (e) => {
         e.preventDefault()
+        e.stopPropagation()
         console.log('hello')
         let videoUri = video.getAttribute('id')
         playingVideo.setAttribute('src', videoUri)
-
-        myVideo.play();
-        mainVideo.pause();
+        loadVideo();
     })
 })
+
+//stop main page video while switching on mobile view
+
+function stopMainVideoOnSmallWidth() {
+
+    window.addEventListener('resize', (e) => {
+        console.log(window.innerWidth)
+        if (window.innerHeight <= 768) {
+            mainVideo.pause()
+        }
+    })
+}
+
+function stopMobileVideoOnBiggerScreen() {
+    window.addEventListener('resize', (e) => {
+        console.log(window.innerWidth)
+        if (window.innerHeight <= 768) {
+            myVideo.pause()
+        }
+    })
+}
+
+function loadVideo() {
+    myVideo.play();
+    mainVideo.pause();
+}
+
+function stopVideo() {
+    myVideo.pause();
+    mainVideo.pause();
+}
+
+stopMainVideoOnSmallWidth()
+stopMobileVideoOnBiggerScreen()
