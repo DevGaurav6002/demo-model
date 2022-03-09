@@ -104,7 +104,7 @@ color: var(--nykaa-pink);
     /* position: relative; */
     /* padding: 20px 0px 100px 0px; */
     position: absolute;
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 .main-image-container::-webkit-scrollbar {
@@ -122,51 +122,51 @@ color: var(--nykaa-pink);
     left: 0;
 }
 
-
-.img:nth-child(1){
+ .img:nth-child(1){
     left: 0%;
 }
 
 .img:nth-child(2){
-    left: 100%;
+    left: 90%;
 }
 
 .img:nth-child(3){
-    left: 200%;
+    left: 190%;
 }
 
 .img:nth-child(4){
-    left: 300%;
+    left: 290%;
 }
 
 .img:nth-child(5){
-    left: 400%;
+    left: 390%;
 }
 
 .img:nth-child(6){
-    left: 500%;
+    left: 490%;
 }
 
 .img:nth-child(7){
-    left: 600%;
+    left: 590%;
 }
 
 .img:nth-child(8){
-    left: 700%;
+    left: 690%;
 }
 
 .img:nth-child(9){
-    left: 800%;
+    left: 790%;
 }
 
 .img:nth-child(10){
-    left: 900%;
-}
+    left: 890%;
+} 
 
 
-/* .img{
+.img{
     transform: translateX(0%);
-} */
+    transition: transform 0.3s ease-in-out;
+}
 
 .sticky-div{
     /* max-height: 190px;
@@ -176,7 +176,7 @@ color: var(--nykaa-pink);
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    top: 53%;
+    top: 62%;
     overflow: scroll;
 }
 
@@ -210,7 +210,7 @@ color: var(--nykaa-pink);
     /* padding: 10px 40px; */
     border: 1px solid var(--nykaa-pink);
     position: relative;
-    top: 60%;
+    top: 68%;
     border-radius: 5px;
 }
 
