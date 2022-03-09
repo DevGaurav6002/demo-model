@@ -51,7 +51,7 @@ function couracel() {
     }
 
     slides.forEach(slide => {
-        slide.style.transform = `translate(-${count * 100 - 10}%)`
+        slide.style.transform = `translate(-${count * 100}%)`
     })
 }
 

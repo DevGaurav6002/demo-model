@@ -127,39 +127,39 @@ color: var(--nykaa-pink);
 }
 
 .img:nth-child(2){
-    left: 90%;
+    left: 100%;
 }
 
 .img:nth-child(3){
-    left: 190%;
+    left: 200%;
 }
 
 .img:nth-child(4){
-    left: 290%;
+    left: 300%;
 }
 
 .img:nth-child(5){
-    left: 390%;
+    left: 400%;
 }
 
 .img:nth-child(6){
-    left: 490%;
+    left: 500%;
 }
 
 .img:nth-child(7){
-    left: 590%;
+    left: 600%;
 }
 
 .img:nth-child(8){
-    left: 690%;
+    left: 700%;
 }
 
 .img:nth-child(9){
-    left: 790%;
+    left: 800%;
 }
 
 .img:nth-child(10){
-    left: 890%;
+    left: 900%;
 } 
 
 
