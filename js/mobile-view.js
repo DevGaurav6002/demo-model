@@ -1,6 +1,5 @@
 const slider = document.querySelector('.main-image-container')
 const slides = Array.from(document.querySelectorAll('.main-image-container .mobile-img'))
-//const mobileMenus = document.querySelectorAll('.mobile-menu')
 let menuImages = Array.from(document.querySelectorAll('.mobile-menu-container .mobile-menu img'))
 
 let isDragging = false;
@@ -134,7 +133,6 @@ const mainVideo = document.querySelector('.main-video video')
 
 videoBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    console.log("Hello video container")
     videoContainer.style.display = "block";
     imageContainer.style.display = "none";
     loadVideo();
@@ -142,21 +140,19 @@ videoBtn.addEventListener('click', (e) => {
 
 imageBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    console.log("Hello Image container")
     videoContainer.style.display = "none"
     imageContainer.style.display = "block"
     stopVideo();
 })
 
 //plying videos on click
-const videos = Array.from(document.querySelectorAll('.video img'))
+const videos = Array.from(document.querySelectorAll('.mobile-video img'))
 const playingVideo = document.querySelector('.video-container video')
 
 videos.forEach(video => {
     video.addEventListener('click', (e) => {
         e.preventDefault()
         e.stopPropagation()
-        console.log('hello')
         let videoUri = video.getAttribute('id')
         playingVideo.setAttribute('src', videoUri)
         loadVideo();
@@ -168,7 +164,6 @@ videos.forEach(video => {
 function stopMainVideoOnSmallWidth() {
 
     window.addEventListener('resize', (e) => {
-        console.log(window.innerWidth)
         if (window.innerHeight <= 768) {
             mainVideo.pause()
         }
@@ -177,7 +172,6 @@ function stopMainVideoOnSmallWidth() {
 
 function stopMobileVideoOnBiggerScreen() {
     window.addEventListener('resize', (e) => {
-        console.log(window.innerWidth)
         if (window.innerHeight <= 768) {
             myVideo.pause()
         }
@@ -196,3 +190,4 @@ function stopVideo() {
 
 stopMainVideoOnSmallWidth()
 stopMobileVideoOnBiggerScreen()
+

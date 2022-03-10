@@ -13,6 +13,8 @@ const videoNIBtn = document.querySelector('.navbar-video .image-div-video a');
 const videoNVBtn = document.querySelector('.navbar-video .video-div-video a');
 const video = document.querySelector('.main-video video');
 
+
+
 //image model
 let iModelMainImage = document.querySelector('.p-main-image-container .main-image img');
 let iModelAllImages = document.querySelectorAll('.menu-images .img img');
@@ -28,6 +30,8 @@ mainMenuImages.forEach(menuImage => {
 
 //opening model if you click on main image
 mainImage.addEventListener('click', (e) => {
+    mainCard.classList.add('closed')
+    mainCard.classList.remove('open')
     imageModel.style.display = 'grid';
     mainCard.style.display = 'none';
     iModelMainImage.setAttribute('src', mainImageSrc)
@@ -55,6 +59,8 @@ iModelAllImages.forEach(image => {
 cutIMBtn.addEventListener('click', (e) => {
     imageModel.style.display = 'none';
     mainCard.style.display = 'grid';
+    mainCard.classList.add('open')
+    mainCard.classList.remove('closed')
     bodyContainer.style.background = 'var(--gray-300)'
     document.body.style.background = 'var(--gray-300)';
 })
@@ -63,6 +69,8 @@ cutVMBtn.addEventListener('click', (e) => {
     imageModel.style.display = 'none';
     videoModel.style.display = 'none';
     mainCard.style.display = 'grid';
+    mainCard.classList.add('open')
+    mainCard.classList.remove('closed')
     video.pause()
     bodyContainer.style.background = 'var(--gray-300)'
     document.body.style.background = 'var(--gray-300)';
@@ -80,3 +88,104 @@ videoNIBtn.addEventListener('click', (e) => {
     imageModel.style.display = 'grid'
     video.pause()
 })
+
+//playing video on onclick event
+
+const deskVideos = Array.from(document.querySelectorAll('.video img'))
+const deskPlayingVideo = document.querySelector('.main-video video')
+const videoThumbnailParent = Array.from(document.querySelectorAll('.video'))
+
+
+
+deskVideos.forEach(video => {
+    video.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        mainVideoUri = video.getAttribute('id')
+
+        deskPlayingVideo.setAttribute('src', mainVideoUri)
+
+        deskPlayingVideo.setAttribute('autoplay', 'autoplay')
+
+
+        videoThumbnailParent.forEach(videoParent => {
+
+
+            if (videoParent.children.length > 1 && videoParent.querySelector(".playingVideo") != null) {
+                const removeElement = document.querySelector('.playingVideo')
+                videoParent.style.border = '2px solid #e481a7'
+                videoParent.removeChild(removeElement)
+            }
+            else {
+                console.log("It does not had playing tag")
+            }
+
+
+        })
+
+        //console.log(video.parentElement)
+
+        video.parentElement.appendChild(getH3Element())
+        video.parentElement.style.border = '2px solid var(--gray-300)'
+
+    })
+})
+
+function getH3Element() {
+    let h3 = document.createElement('h3')
+    let h3Text = document.createTextNode('Now Playing')
+    h3.appendChild(h3Text)
+    h3.classList.add('playingVideo')
+
+    return h3;
+}
+
+
+
+
+
+document.body.onload = function () {
+
+    deskVideos.forEach(video => {
+
+        if (video.getAttribute('id') === deskPlayingVideo.getAttribute('src')) {
+
+            video.parentElement.appendChild(getH3Element())
+            video.parentElement.style.border = '2px solid var(--gray-300)'
+        }
+
+    })
+
+
+    console.log('video Container loaded')
+}
+
+
+// function getPlayingVideoTag() {
+
+//     videoThumbnailParent.forEach(videoParent => {
+//         //console.log(videoParent)
+//         videoParent.removeChild(videoParent.childNodes[2])
+//     })
+
+//     deskVideos.forEach(video => {
+
+//         if (video.getAttribute('id') === deskPlayingVideo.getAttribute('src')) {
+
+//             video.parentElement.appendChild(getH3Element())
+
+//             console.log(video)
+//         }
+
+//     })
+
+// }
+
+// function removePlayingTag(videoParent) {
+//     if (videoParent.children.length > 1 && videoParent.querySelector(".playingVideo") != null) {
+//         videoParent.removeChild('h3')
+//     }
+//     else {
+//         console.log("It does not had playing tag")
+//     }
+// }
