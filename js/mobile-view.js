@@ -97,29 +97,6 @@ function highlightBox(menuImage) {
 
 getClickedImage()
 
-//video container
-
-const videoMenu = document.querySelector('.video-menubox')
-const videoFooter = document.querySelector('.video-footer')
-
-videoMenu.addEventListener('click', (e) => {
-    e.preventDefault()
-
-    videoMenu.classList.toggle('getMenuUp')
-    videoFooter.classList.toggle('getFooterDown')
-
-    if (videoMenu.classList.contains('getMenuUp')) {
-        let myArrow = document.querySelector('.arrow-div i')
-        myArrow.classList.remove('fa-angle-double-up')
-        myArrow.classList.add('fa-angle-double-down')
-        videoFooter.style.display = 'none';
-    } else {
-        let myArrow = document.querySelector('.arrow-div i')
-        myArrow.classList.add('fa-angle-double-up')
-        myArrow.classList.remove('fa-angle-double-down')
-        videoFooter.style.display = 'grid';
-    }
-})
 
 
 //making nav buttons working
@@ -145,17 +122,40 @@ imageBtn.addEventListener('click', (e) => {
     stopVideo();
 })
 
+
+
 //plying videos on click
+
+
 const videos = Array.from(document.querySelectorAll('.mobile-video img'))
 const playingVideo = document.querySelector('.video-container video')
+const mobileVideoThumbnailParent = Array.from(document.querySelectorAll('.mobile-video'))
 
 videos.forEach(video => {
     video.addEventListener('click', (e) => {
+
         e.preventDefault()
-        e.stopPropagation()
+
         let videoUri = video.getAttribute('id')
         playingVideo.setAttribute('src', videoUri)
         loadVideo();
+
+        mobileVideoThumbnailParent.forEach(videoParent => {
+
+            if (videoParent.children.length > 1 && videoParent.querySelector(".playingVideo") != null) {
+                const removeElement = videoParent.querySelector('.playingVideo')
+                videoParent.style.border = '2px solid #e481a7'
+                videoParent.removeChild(removeElement)
+            }
+            else {
+                console.log("It does not had playing tag")
+            }
+
+
+        })
+
+        video.parentElement.appendChild(getH3Element())
+        video.parentElement.style.border = '2px solid var(--gray-300)'
     })
 })
 
@@ -191,3 +191,76 @@ function stopVideo() {
 stopMainVideoOnSmallWidth()
 stopMobileVideoOnBiggerScreen()
 
+
+
+//playing video on onclick event
+
+// const mobileVideos = Array.from(document.querySelectorAll('.mobile-video img'))
+// const mobilePlayingVideo = document.querySelector('.video-container video')
+//const mobileVideoThumbnailParent = Array.from(document.querySelectorAll('.mobile-video'))
+
+
+
+// mobileVideos.forEach(video => {
+//     video.addEventListener('click', (e) => {
+//         e.preventDefault()
+
+//         mainVideoUri = video.getAttribute('id')
+
+//         mobilePlayingVideo.setAttribute('src', mainVideoUri)
+
+//         mobilePlayingVideo.setAttribute('autoplay', 'autoplay')
+
+
+//         mobileVideoThumbnailParent.forEach(videoParent => {
+
+
+//             if (videoParent.children.length > 1 && videoParent.querySelector(".playingVideo") != null) {
+//                 const removeElement = document.querySelector('.playingVideo')
+//                 videoParent.style.border = '2px solid #e481a7'
+//                 videoParent.removeChild(removeElement)
+//             }
+//             else {
+//                 console.log("It does not had playing tag")
+//             }
+
+
+//         })
+
+//         //console.log(video.parentElement)
+
+//         video.parentElement.appendChild(getH3Element())
+//         video.parentElement.style.border = '2px solid var(--gray-300)'
+
+//     })
+// })
+
+function getH3Element() {
+    let h3 = document.createElement('h3')
+    let h3Text = document.createTextNode('Now Playing')
+    h3.appendChild(h3Text)
+    h3.classList.add('playingVideo')
+
+    return h3;
+}
+
+function getInitialVideo() {
+
+    videos.forEach(video => {
+
+        console.log("Menu-video" + video.getAttribute('id'))
+        console.log("playing" + playingVideo.getAttribute('src'))
+
+        if (video.getAttribute('id') === playingVideo.getAttribute('src')) {
+
+            video.parentElement.appendChild(getH3Element())
+            video.parentElement.style.border = '2px solid var(--gray-300)'
+        }
+
+    })
+
+
+    console.log('Initial Video')
+}
+
+getInitialVideo()
