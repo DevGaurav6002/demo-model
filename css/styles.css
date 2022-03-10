@@ -6,6 +6,10 @@
     --nykaa-pink: #FC2779;
 }
 
+body{
+    overflow: hidden;
+}
+
 .c-img img:hover, .c-main-img img:hover, .img img:hover, .delete-btn .btn i:hover, .delete-btn-video .btn-video i:hover, .video video:hover, .image-div-video a:hover, .video-div-video a:hover, .image-div a:hover, .video-div a:hover, .btn-up, .btn-down, .c-checkout-btn-video button, .c-checkout-btn button{ 
     cursor: pointer;
 }
@@ -1242,12 +1246,6 @@ color: var(--nykaa-pink);
     font-family: var(--open-sans);
     font-weight: 400;
     margin-bottom: 10px;
-    padding: 16px;
-}
-
-.mobile-prices{
-    padding: 16px;
-    margin-top: -20px;
 }
 
 .mobile-p-checkout{
@@ -1257,7 +1255,6 @@ color: var(--nykaa-pink);
 }
 
 .mobile-p-checkout .c-checkout-btn{
-    padding: 10px 10px;
     width: 100%;
 }
 
@@ -1269,6 +1266,5 @@ color: var(--nykaa-pink);
     color: #fff;
     font-size: 16px;
     font-weight: 600;
-    padding: 10px 10px;
     letter-spacing: 1.2px;
 }
